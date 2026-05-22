@@ -1,0 +1,292 @@
+/* Tipografía y Títulos */
+h1, h2, h3 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.text-gradient {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+/* Glassmorphism System */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+/* Navbar Dinámico */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  padding: 1.5rem 5%;
+}
+
+.navbar.scrolled {
+  padding: 0.8rem 5%;
+  background: rgba(5, 10, 20, 0.85); /* Más oscuro al hacer scroll */
+  border-bottom: 1px solid var(--glass-border);
+}
+
+/* Cards de Última Generación */
+.card {
+  border-radius: 16px;
+  padding: 2rem;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: 16px;
+  padding: 1px; /* Ancho del borde */
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+  webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.5;
+  transition: opacity 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px -10px rgba(255, 107, 0, 0.15);
+  border-color: rgba(255, 107, 0, 0.3);
+}
+
+.card:hover::before {
+  opacity: 1;
+  background: linear-gradient(135deg, rgba(255, 107, 0, 0.5), rgba(255, 255, 255, 0.1));
+}
+
+/* Botones */
+.cta {
+  background: var(--gradient-accent);
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta:hover {
+  box-shadow: 0 0 20px rgba(255, 107, 0, 0.6);
+  transform: scale(1.05);
+}
+
+/* Animaciones Scroll-Driven (Intersection Observer Helpers) */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Canvas Background */
+#bg-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Modal/Toast Notifications */
+.toast-container {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.toast {
+  background: rgba(10, 25, 47, 0.95);
+  border-left: 4px solid #ff6b00;
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 4px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  backdrop-filter: blur(10px);
+  transform: translateX(120%);
+  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toast.show {
+  transform: translateX(0);
+}
+
+
+/* ... (Código anterior se mantiene, agrega esto al final) ... */
+
+/* --- Estilos del Logo en Navbar --- */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.navbar-logo img {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+  border-radius: 50%; /* Circular si la imagen lo permite, o cuadrado con bordes suaves */
+  filter: drop-shadow(0 0 5px rgba(255, 107, 0, 0.3));
+  transition: transform 0.3s ease;
+}
+
+.navbar-logo:hover img {
+  transform: rotate(10deg) scale(1.1);
+}
+
+/* --- Efecto Parallax para el Hero --- */
+.parallax-container {
+  position: relative;
+  z-index: 10;
+}
+
+.hero-parallax-slow {
+  will-change: transform, opacity;
+}
+
+.hero-parallax-fast {
+  will-change: transform, opacity;
+}
+
+/* Iconos Phosphor - Tamaños globales */
+i.ph {
+  font-size: 1.2em;
+  vertical-align: middle;
+}
+
+/* Iconos grandes para tarjetas */
+.icon-lg {
+  font-size: 3rem;
+  color: #ff6b00;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+
+/* --- Modal de WhatsApp --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  z-index: 3000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background: rgba(20, 25, 40, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2.5rem;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  position: relative;
+  transform: scale(0.8);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+.modal-overlay.active .modal-content {
+  transform: scale(1);
+}
+
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.close-modal:hover {
+  opacity: 1;
+}
+
+.qr-container {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: white;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+.qr-container img {
+  width: 180px;
+  height: 180px;
+  display: block;
+}
+
+.btn-wa-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #25D366; /* Color Oficial WhatsApp */
+  color: white;
+  text-decoration: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  margin-top: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-wa-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+}
