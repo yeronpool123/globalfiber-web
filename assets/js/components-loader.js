@@ -1,5 +1,5 @@
 function loadComponent(id, file) {
-  return fetch(`frontend/components/${file}`)
+  return fetch(`components/${file}`)
     .then(res => {
       if (!res.ok) throw new Error(`Error loading ${file}`);
       return res.text();
