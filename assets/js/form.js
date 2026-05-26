@@ -27,19 +27,20 @@ document.addEventListener("DOMContentLoaded", () => {
       try {
 
         await emailjs.send(
-          '9ryOSEnVHLid-LSIB',
+          'global.fibr@gmail.com', // <-- SERVICE ID
           'template_ztl6p69',
           {
             from_name: name,
             from_email: email,
             message: message
-          }
+          },
+          '9ryOSEnVHLid-LSIB' // <-- TU PUBLIC KEY
         );
 
         // Toast success
         if (window.showToast) {
           window.showToast(
-            '¡Mensaje enviado correctamente!',
+            '¡Mensaje enviado correctamente, te contactaremos pronto!',
             'success'
           );
         }
@@ -48,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       } catch (error) {
 
-        console.error(error);
+        console.error('ERROR EMAILJS:', error);
 
         if (window.showToast) {
           window.showToast(
