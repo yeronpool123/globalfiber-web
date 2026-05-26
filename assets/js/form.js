@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
       try {
 
         await emailjs.send(
-          'global.fibr@gmail.com', // <-- SERVICE ID
+          'service_ikm4pu1', // <-- SERVICE ID
           'template_ztl6p69',
           {
             from_name: name,
