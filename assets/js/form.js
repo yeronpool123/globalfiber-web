@@ -1,31 +1,72 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Usamos delegación de eventos por si el formulario se carga dinámicamente
-  document.body.addEventListener('submit', function(e) {
+
+  document.body.addEventListener('submit', async function(e) {
+
     const form = e.target;
+
     if (form && form.id === 'contactForm') {
+
       e.preventDefault();
-      
+
       const btn = form.querySelector('button');
+
       const originalText = btn.innerText;
-      
-      // Simular estado de carga
+
+      // Inputs
+      const inputs = form.querySelectorAll('input, textarea');
+
+      const name = inputs[0].value;
+      const email = inputs[1].value;
+      const message = inputs[2].value;
+
+      // Estado loading
       btn.innerText = 'Enviando...';
       btn.style.opacity = '0.7';
       btn.disabled = true;
 
-      // Simular petición al servidor (2 segundos)
-      setTimeout(() => {
+      try {
+
+        await emailjs.send(
+          '9ryOSEnVHLid-LSIB',
+          'template_ztl6p69',
+          {
+            from_name: name,
+            from_email: email,
+            message: message
+          }
+        );
+
+        // Toast success
+        if (window.showToast) {
+          window.showToast(
+            '¡Mensaje enviado correctamente!',
+            'success'
+          );
+        }
+
+        form.reset();
+
+      } catch (error) {
+
+        console.error(error);
+
+        if (window.showToast) {
+          window.showToast(
+            'Error al enviar el mensaje.',
+            'error'
+          );
+        }
+
+      } finally {
+
         btn.innerText = originalText;
         btn.style.opacity = '1';
         btn.disabled = false;
-        
-        // Llamada a la función global definida en ui.js
-        if (window.showToast) {
-          window.showToast('¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.', 'success');
-        }
-        
-        form.reset();
-      }, 2000);
+
+      }
+
     }
+
   });
+
 });

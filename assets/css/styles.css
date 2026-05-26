@@ -1,17 +1,17 @@
 :root {
-  /* Paleta GLOBALFIBER */
-  --color-bg: #050a14;
-  --color-text-main: #ffffff;
-  --color-text-muted: #a0aab5;
+  /* Paleta GLOBALFIBER - Rediseño Corporativo */
+  --color-bg: #ffffff;
+  --color-text-main: #1a1a1a;
+  --color-text-muted: #666666;
   --gradient-primary: linear-gradient(135deg, #003366 0%, #001a33 100%); /* Azul Marino Profundo */
   --gradient-accent: linear-gradient(90deg, #ff6b00 0%, #ff9100 100%); /* Naranja Vibrante */
-  --gradient-text: linear-gradient(90deg, #ffffff 0%, #94a3b8 100%);
-  
-  /* Glassmorphism Base */
-  --glass-bg: rgba(255, 255, 255, 0.03);
-  --glass-border: rgba(255, 255, 255, 0.08);
+  --gradient-text: linear-gradient(90deg, #003366 0%, #001a33 100%);
+
+  /* Glassmorphism Base - Adaptado para fondo blanco */
+  --glass-bg: rgba(0, 51, 102, 0.05);
+  --glass-border: rgba(0, 51, 102, 0.1);
   --glass-blur: 16px;
-  --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
 }
 
 * {
@@ -33,10 +33,10 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-bg);
+  background: #f5f5f5;
 }
 ::-webkit-scrollbar-thumb {
-  background: #334155;
+  background: #cc9900;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {

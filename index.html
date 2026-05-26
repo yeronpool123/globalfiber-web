@@ -5,15 +5,68 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GLOBALFIBER | Conectividad Corporativa</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+
+  <!-- Favicon -->
+<link rel="icon" type="image/jpg" href="assets/images/favicon.jpg">
+
+<!-- Android -->
+<link rel="apple-touch-icon" href="assets/images/favicon.jpg">
+
+<!-- Theme color -->
+<meta name="theme-color" content="#003366">
+
   
   <!-- LIBRERÍA DE ICONOS PROFESIONALES (Phosphor Icons) -->
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <!-- LIBRERÍA QR MODERNO -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode.js/1.5.3/qrcode.min.js"></script>
 
   <!-- CSS -->
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="stylesheet" href="assets/css/uiux.css">
 </head>
+
+
 <body>
+
+
+  <!-- =========================================
+     PRELOADER GLOBALFIBER
+========================================= -->
+<div id="preloader">
+
+  <!-- Canvas partículas -->
+  <canvas id="preloader-canvas"></canvas>
+
+  <div class="preloader-content">
+
+    <!-- Logo -->
+    <img 
+      src="assets/images/logoempresa.png" 
+      alt="GlobalFiber Logo"
+      class="preloader-logo"
+    >
+
+    <!-- Texto -->
+    <h2 class="preloader-title">
+     ¡BIENVENIDOS!
+    </h2>
+
+    <p class="preloader-subtitle">
+      Conectando experiencias digitales...
+    </p>
+
+    <!-- Barra -->
+    <div class="preloader-progress">
+      <div class="preloader-bar" id="preloader-bar"></div>
+    </div>
+
+  </div>
+</div>
+
+
 
   <!-- Canvas para animación de fondo -->
   <canvas id="bg-canvas"></canvas>
@@ -30,10 +83,62 @@
 
   <div id="footer"></div>
 
+  <!-- QR Widget Flotante Premium -->
+  <div id="wa-floating-widget" class="wa-widget-container">
+    <div class="wa-widget-content">
+      <!-- Header con Close -->
+      <div class="wa-widget-header">
+        <div class="wa-widget-icon">
+          <i class="ph ph-whatsapp-logo"></i>
+        </div>
+        <button class="wa-widget-close" id="wa-widget-close">
+          <i class="ph ph-x"></i>
+        </button>
+      </div>
+
+      <!-- Contenido principal -->
+      <div class="wa-widget-body">
+        <h3>Contáctanos</h3>
+        <p>Escanea y chatéa con nosotros</p>
+
+        <!-- QR Display -->
+        <div class="wa-qr-display">
+          <div id="wa-qr-code" style="display: flex; align-items: center; justify-content: center;"></div>
+        </div>
+
+        <!-- Empresa info -->
+        <div class="wa-company-info">
+          <span class="company-name">GLOBALFIBER S.A.S</span>
+          <span class="company-subtitle">Soporte 24/7</span>
+        </div>
+      </div>
+
+      <!-- Footer del widget -->
+      <div class="wa-widget-footer">
+        <a href="https://wa.me/593991800097" class="wa-open-link" target="_blank">
+          <i class="ph ph-arrow-right"></i> Abrir WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- Botón flotante FAB (para reapertura) -->
+    <button class="wa-widget-fab" id="wa-widget-fab">
+      <i class="ph ph-whatsapp-logo"></i>
+    </button>
+  </div>
+
+
+
+  <!-- Librería QRCode.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <!-- JavaScript -->
   <script src="assets/js/components-loader.js"></script>
   <script src="assets/js/ui.js"></script>
   <script src="assets/js/form.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+  emailjs.init("9ryOSEnVHLid-LSIB");
+  </script>
 
 </body>
 </html>
