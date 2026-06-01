@@ -179,3 +179,38 @@ function selectPlanAndScroll(serviceValue) {
         }, 1500);
     }
 }
+
+
+// CONTROL INTELIGENTE PARA EL MENÚ HAMBURGUESA CYBER-GLASS
+document.addEventListener("click", (event) => {
+    const hamburgerBtn = event.target.closest("#menu-hamburger-btn");
+    const navLinksMenu = document.getElementById("nav-links-menu");
+
+    // 1. Si hace clic en el botón de hamburguesa, abrimos o cerramos
+    if (hamburgerBtn && navLinksMenu) {
+        event.preventDefault();
+        hamburgerBtn.classList.toggle("toggle-active");
+        navLinksMenu.classList.toggle("menu-active");
+        return;
+    }
+
+    // 2. Si el menú está abierto y presiona un enlace, navega y se cierra solo
+    if (event.target.classList.contains("nav-link") || event.target.closest(".nav-link")) {
+        const activeBtn = document.getElementById("menu-hamburger-btn");
+        const activeMenu = document.getElementById("nav-links-menu");
+        
+        if (activeMenu && activeMenu.classList.contains("menu-active")) {
+            activeBtn.classList.remove("toggle-active");
+            activeMenu.classList.remove("menu-active");
+        }
+        return;
+    }
+
+    // 3. Si el menú está abierto y el usuario hace clic fuera de él, se cierra automáticamente
+    const openMenu = document.getElementById("nav-links-menu");
+    const openBtn = document.getElementById("menu-hamburger-btn");
+    if (openMenu && openMenu.classList.contains("menu-active") && !event.target.closest("#nav-links-menu") && !event.target.closest("#menu-hamburger-btn")) {
+        openBtn.classList.remove("toggle-active");
+        openMenu.classList.remove("menu-active");
+    }
+});

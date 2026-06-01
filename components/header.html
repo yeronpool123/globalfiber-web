@@ -1,14 +1,11 @@
 <nav class="navbar glass" id="main-nav">
-  <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+  <div class="navbar-container">
 
-    <!-- LOGO + TITULO -->
     <a href="#" class="navbar-logo" style="text-decoration: none;">
-      <!-- Logo Imagen -->
       <img src="assets/images/logoempresa.png" alt="GlobalFiber Logo">
     </a>
 
-    <!-- Menú de Navegación -->
-    <div class="nav-links" style="display: flex; gap: 2rem;">
+    <div class="nav-links nav-links-menu" id="nav-links-menu">
       <a href="#services" class="nav-link">
         <i class="ph ph-broadcast"></i> Servicios
       </a>
@@ -19,5 +16,18 @@
         <i class="ph ph-paper-plane-tilt"></i> Contacto
       </a>
     </div>
+
+<button id="menu-hamburger-btn" class="menu-hamburger-btn" aria-label="Abrir menú">
+  <span class="bar"></span>
+  <span class="bar"></span>
+  <span class="bar"></span>
+</button>
+
+<div id="nav-links-menu" class="nav-links-menu">
+  <a href="#servicios" class="nav-link"><i class="ph ph-broadcast"></i> Servicios</a>
+  <a href="#beneficios" class="nav-link"><i class="ph ph-star"></i> Beneficios</a>
+  <a href="#contacto" class="nav-link"><i class="ph ph-paper-plane-tilt"></i> Contacto</a>
+</div>
+
   </div>
 </nav>

@@ -1,3 +1,45 @@
+/* ==========================================================================
+   RESET GENERAL DE CONTENCIÓN Y CENTRADO RESPONSIVE
+   ========================================================================== */
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Evita que la página baile de izquierda a derecha */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Forzar que todos los contenedores maestros de secciones se auto-centren */
+section, header, footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* Tu contenedor principal debe estar perfectamente equilibrado */
+.packages-container, 
+.regional-container, 
+.footer-container,
+.main-container {
+  width: 100% !important;
+  max-width: 1140px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+
+  ========================================================================== */
+
+
+
 /* Tipografía y Títulos */
 h1, h2, h3 {
   font-weight: 800;
@@ -719,17 +761,37 @@ i.ph {
 }
 
 
-/* Responsive */
-@media (max-width: 768px) {
 
+/* ==========================================================================
+   OPTIMIZACIÓN RESPONSIVE EXCLUSIVA PARA EL WIDGET DE WHATSAPP Y CHATBOT
+   ========================================================================== */
+@media (max-width: 768px) {
+  
+  /* Desplazamos todo el contenedor del widget de WhatsApp hacia arriba */
   .wa-widget-container {
-    bottom: 10px;
-    right: 10px;
+    position: fixed !important;
+    left: auto !important;       /* Rompe arrastre izquierdo previo */
+    right: 20px !important;      /* Alineado simétricamente con el chatbot */
+    bottom: 95px !important;     /* Altura calculada para saltar por encima del chatbot */
+    z-index: 99999 !important;   /* Prioridad visual absoluta */
   }
 
+  /* Forzamos que la burbuja flotante del Chatbot se quede fija abajo en su esquina */
+  .chatbot-toggle, 
+  #global-ai-trigger, 
+  [class*="global-ai"] {
+    position: fixed !important;
+    left: auto !important;
+    right: 20px !important;
+    bottom: 20px !important;     /* Pegado limpio al suelo del cel */
+    z-index: 99998 !important;   /* Queda justo abajo de la órbita de WhatsApp */
+  }
+
+  /* Mantenemos las proporciones estilizadas del widget interno en celulares */
   .wa-widget-content {
-    width: 260px;
-    padding: 16px;
+    width: 260px !important;
+    padding: 16px !important;
+    transform-origin: bottom right !important;
   }
 
   .wa-qr-display canvas,
@@ -739,11 +801,48 @@ i.ph {
   }
 
   .wa-widget-fab {
-    width: 52px;
-    height: 52px;
-    font-size: 1.3rem;
+    width: 52px !important;
+    height: 52px !important;
+    font-size: 1.3rem !important;
+    margin-top: 0px !important;
   }
 }
+
+
+
+@media (max-width: 480px) {
+/* Enviamos el widget de WhatsApp abajo a la izquierda */
+  .wa-widget-container {
+    position: fixed !important;
+    right: auto !important;       /* Anula la alineación derecha previa */
+    left: 20px !important;        /* ¡LO MUEVE A LA IZQUIERDA! */
+    bottom: 20px !important;      /* Lo nivela a la misma altura del suelo */
+    z-index: 99999 !important;
+  }
+
+  /* El Chatbot de GLOBAL AI se queda abajo a la derecha */
+  .chatbot-toggle, 
+  #global-ai-trigger, 
+  [class*="global-ai"] {
+    position: fixed !important;
+    left: auto !important;
+    right: 20px !important;       /* ¡LO MANTIENE A LA DERECHA! */
+    bottom: 20px !important;      /* Pegado al suelo */
+    z-index: 99999 !important;
+  }
+
+  /* Cambiamos el punto de origen de la animación del cuadro de WhatsApp 
+     para que cuando se abra, se despliegue desde la izquierda */
+  .wa-widget-content {
+    width: 260px !important;
+    padding: 16px !important;
+    transform-origin: bottom left !important; /* Ahora abre desde la izquierda */
+  }
+}
+
+
+
+
 
 @media (max-width: 480px) {
 
@@ -1988,3 +2087,240 @@ i.ph {
     transform: translateY(-5px);
   }
 }
+
+
+/* ==========================================================================
+   MEDIA QUERIES COMPLETO PARA DISPOSITIVOS MÓVILES (SMARTPHONES)
+   ========================================================================== */
+@media (max-width: 768px) {
+  
+  /* 1. Ajustes del Título Principal */
+  h1, .packages-master-title {
+    font-size: 1.8rem !important;
+    text-align: center !important;
+    padding: 0 10px;
+  }
+  
+  /* 2. Reparación del Módulo Regional (Sedes) */
+  /* Forzamos que la distribución pase de filas a columnas centradas */
+  .regional-grid, 
+  #pricing-packages .packages-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 1.5rem !important;
+    width: 100% !important;
+  }
+
+  /* Las tarjetas de las ciudades ahora ocuparán todo el ancho disponible */
+  .regional-card, 
+  .package-card {
+    width: 100% !important;
+    max-width: 340px !important; /* Ancho ideal y estético para pantallas de celular */
+    margin: 0 auto !important;
+    box-sizing: border-box;
+  }
+
+  /* Ajustar la sección del formulario para que no se desfase */
+  .consultoria-form-box, 
+  #regional-whatsapp-form {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 1.5rem 1rem !important;
+    margin: 0 auto !important;
+    float: none !important;
+  }
+}
+
+
+/* ==========================================================================
+   ESTILOS BASE DEL NAVBAR GENERAL (ESCRITORIO)
+   ========================================================================== */
+.navbar-container {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.nav-links-menu {
+  display: flex; 
+  gap: 2rem;
+}
+
+/* Botón Hamburguesa oculto por defecto en computadoras */
+.menu-hamburger-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 18px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10001;
+}
+
+.menu-hamburger-btn .bar {
+  width: 100%;
+  height: 2.5px;
+  background-color: #003366; /* Azul corporativo principal */
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+
+
+
+
+
+
+  /* ==========================================================================
+   REDISEÑO PREMIUM FUTURISTA: MENÚ HAMBURGUESA CYBER-GLASS
+   ========================================================================== */
+
+/* 1. ESTILOS DEL BOTÓN HAMBURGUESA (GLOBAL) */
+.menu-hamburger-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 100001 !important; /* Por encima de cualquier capa */
+  position: relative;
+}
+
+.menu-hamburger-btn .bar {
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #003366, #ff6b00);
+  border-radius: 4px;
+  transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+/* Animación del botón al transformarse en X */
+.menu-hamburger-btn.toggle-active .bar:nth-child(1) {
+  transform: translateY(8.5px) rotate(45deg);
+  background: #ff6b00;
+}
+.menu-hamburger-btn.toggle-active .bar:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+.menu-hamburger-btn.toggle-active .bar:nth-child(3) {
+  transform: translateY(-8.5px) rotate(-45deg);
+  background: #ff6b00;
+}
+
+/* 2. LA TARJETA FLOTANTE GLASSMORPHISM (EL MENÚ) */
+.nav-links-menu {
+  position: fixed !important;
+  top: 85px; /* Se posiciona elegantemente debajo del Navbar principal */
+  right: -320px; /* Escondido por defecto fuera de la pantalla */
+  width: 280px; /* Ancho ultra estético, ya no es gigante */
+  height: auto; /* Altura dinámica adaptada a su contenido */
+  max-height: calc(100vh - 120px);
+  
+  /* Efecto Espejo Traslúcido Avanzado */
+  background: rgba(0, 26, 51, 0.75) !important; 
+  backdrop-filter: blur(20px) cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-backdrop-filter: blur(20px);
+  
+  /* Bordes de Neón degradados sutiles */
+  border: 1px solid rgba(255, 107, 0, 0.25) !important;
+  border-radius: 24px;
+  padding: 2rem 1.5rem;
+  
+  /* Lista de elementos en vertical */
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.2rem !important;
+  align-items: stretch !important;
+  
+  /* Sombra de profundidad */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 
+              0 0 30px rgba(255, 107, 0, 0.05) !important;
+  
+  /* Transición ultra suave de entrada */
+  transition: right 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+              opacity 0.4s ease, 
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transform: scale(0.95);
+  opacity: 0;
+  z-index: 100000 !important;
+}
+
+/* 3. ESTADO ACTIVO (CUANDO SE ABRE EL MENÚ) */
+.nav-links-menu.menu-active {
+  right: 20px !important; /* Flota de forma suspendida a 20px del borde */
+  opacity: 1 !important;
+  transform: scale(1);
+}
+
+/* 4. ESTILOS INTERNOS DE LOS LINKS (TEXTO INTENSIFICADO) */
+.nav-links-menu .nav-link {
+  color: #ffffff !important; /* Blanco puro absoluto */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Sombra para despegar el texto del fondo */
+  background: rgba(255, 255, 255, 0.09) !important; /* Subimos la base para mayor contraste */
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  padding: 14px 20px !important;
+  border-radius: 14px !important;
+  font-size: 1.05rem !important;
+  font-weight: 700 !important; /* Texto un toque más grueso para aumentar la fuerza */
+  text-decoration: none;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+  width: 100%;
+  box-sizing: border-box;
+  opacity: 0;
+  transform: translateY(15px);
+}
+
+/* Ajuste fino para los íconos (Más vivos) */
+.nav-links-menu .nav-link i {
+  font-size: 1.3rem;
+  color: #ff7b1a !important; /* Naranja corporativo más encendido */
+  filter: drop-shadow(0 2px 6px rgba(255, 107, 0, 0.3)); /* Resplandor sutil */
+  transition: transform 0.3s ease;
+}
+
+/* Animación de aparición escalonada para los links al abrir el menú */
+.nav-links-menu.menu-active .nav-link {
+  opacity: 1;
+  transform: translateY(0);
+}
+.nav-links-menu.menu-active .nav-link:nth-child(1) { transition-delay: 0.1s; }
+.nav-links-menu.menu-active .nav-link:nth-child(2) { transition-delay: 0.18s; }
+.nav-links-menu.menu-active .nav-link:nth-child(3) { transition-delay: 0.26s; }
+
+/* Efecto Hover Premium en las opciones */
+.nav-links-menu .nav-link:hover {
+  background: linear-gradient(135deg, rgba(255, 107, 0, 0.2) 0%, rgba(0, 51, 102, 0.4) 100%) !important;
+  border-color: rgba(255, 107, 0, 0.4) !important;
+  color: #ff9100 !important;
+  transform: translateX(4px) scale(1.02) !important;
+  box-shadow: 0 8px 20px rgba(255, 107, 0, 0.15);
+}
+
+.nav-links-menu .nav-link i {
+  font-size: 1.3rem;
+  color: #ff6b00;
+  transition: transform 0.3s ease;
+}
+
+.nav-links-menu .nav-link:hover i {
+  transform: rotate(10deg) scale(1.1);
+}
+
