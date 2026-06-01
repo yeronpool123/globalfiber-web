@@ -1,42 +1,89 @@
-<footer style="background: #003366; padding: 4rem 5% 2rem 5%; border-top: 2px solid rgba(255, 107, 0, 0.2);">
-  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 3rem; margin-bottom: 3rem;">
-    <div>
-      <h3 style="margin-bottom: 1rem; font-weight: 800; letter-spacing: -0.02em;">
-        <span style="color: #FFFFFF;">GLOBAL</span><span class="text-gradient">FIBER</span>
-      </h3>
-      <p style="color: rgba(255, 255, 255, 0.8); max-width: 300px; font-weight: 500;">
-        Líderes en infraestructura de telecomunicaciones para el sector empresarial.
-      </p>
-    </div>
-    <div style="display: flex; gap: 3rem;">
-      <div>
-        <h4 style="margin-bottom: 1rem; color: white; font-weight: 700;">Contacto</h4>
-        <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 0.5rem; font-weight: 500;">
-          <i class="ph ph-phone-call" style="margin-right: 8px; color: #ff9100;"></i> 0991800097
+<footer class="global-main-footer">
+  <div class="footer-container">
+    
+    <div class="footer-grid">
+      
+      <div class="footer-col brand-col">
+        <h3 class="footer-logo">
+          <span class="text-white">GLOBAL</span><span class="text-orange-gradient">FIBER</span>
+        </h3>
+        <p class="footer-brand-desc">
+          Líderes en infraestructura de telecomunicaciones Carrier-Grade y conectividad simétrica de alta disponibilidad para el sector empresarial e industrial en Ecuador.
         </p>
-        <p style="color: rgba(255, 255, 255, 0.8); font-weight: 500;">
-          <i class="ph ph-envelope-simple" style="margin-right: 8px; color: #ff9100;"></i> global.fibr@gmail.com
-        </p>
-      </div>
-      <div>
-        <h4 style="margin-bottom: 1rem; color: white; font-weight: 700;">Síguenos</h4>
-        <div style="display: flex; gap: 1.5rem; margin-top: 0.5rem;">
-          <a href="#" style="color: white; font-size: 1.5rem; transition: color 0.3s; opacity: 0.9;">
+        <div class="footer-social-links">
+          <a href="#" target="_blank" rel="noopener" class="social-icon-btn linkedin" title="Síguenos en LinkedIn">
             <i class="ph ph-linkedin-logo"></i>
           </a>
-          <a href="#" style="color: white; font-size: 1.5rem; transition: color 0.3s; opacity: 0.9;">
+          <a href="#" target="_blank" rel="noopener" class="social-icon-btn instagram" title="Síguenos en Instagram">
             <i class="ph ph-instagram-logo"></i>
           </a>
-
-          <!-- WHATSAPP TRIGGER (Con ID para el JS) -->
-          <a href="#" id="wa-trigger" style="color: #25D366; font-size: 1.5rem; transition: transform 0.3s; cursor: pointer; opacity: 0.9;">
+          <a href="#" id="wa-trigger" class="social-icon-btn whatsapp" title="Chat de Soporte Directo">
             <i class="ph ph-whatsapp-logo"></i>
           </a>
         </div>
       </div>
+
+      <div class="footer-col links-col">
+        <h4 class="footer-title-header">Corporativo</h4>
+        <ul class="footer-navigation-list">
+          <li><a href="#services"><i class="ph ph-caret-right"></i> Servicios Empresariales</a></li>
+          <li><a href="#benefits"><i class="ph ph-caret-right"></i> Beneficios de Red</a></li>
+          <li><a href="#coverage"><i class="ph ph-caret-right"></i> Cobertura y Mapa</a></li>
+          <li><a href="#contact"><i class="ph ph-caret-right"></i> Consultoría Técnica</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col links-col">
+        <h4 class="footer-title-header">Disponibilidad en</h4>
+        <ul class="footer-navigation-list">
+          <li><a href="#contact"><i class="ph ph-map-pin"></i> Guayaquil (NOC Central)</a></li>
+          <li><a href="#contact"><i class="ph ph-map-pin"></i> Machala (Agro-Industrial)</a></li>
+          <li><a href="#contact"><i class="ph ph-map-pin"></i> Esmeraldas (Eje Portuario)</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col contact-col">
+        <h4 class="footer-title-header">Canales Oficiales</h4>
+        <div class="footer-contact-info-block">
+          <div class="contact-item-row">
+            <i class="ph ph-phone-call icon-orange"></i>
+            <div class="contact-item-text">
+              <span>Central Telefónica</span>
+              <a href="tel:+593991800097">099 180 0097</a>
+            </div>
+          </div>
+          <div class="contact-item-row">
+            <i class="ph ph-envelope-simple icon-orange"></i>
+            <div class="contact-item-text">
+              <span>Correo Corporativo</span>
+              <a href="mailto:global.fibr@gmail.com">global.fibr@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-item-row">
+            <i class="ph ph-clock icon-orange"></i>
+            <div class="contact-item-text">
+              <span>Monitoreo de Red NOC</span>
+              <p>24 / 7 / 365 Activo</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
-  </div>
-  <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; color: rgba(255,255,255,0.6); font-size: 0.8rem;">
-    © 2026 GLOBALFIBER S.A.S. Todos los derechos reservados. (Desarrollado por: Ing. Yeron Pool Cuero Montaño)
+
+    <div class="footer-bottom-bar">
+      <div class="footer-copyright">
+        &copy; 2026 <span class="fw-bold">GLOBALFIBER S.A.S.</span> Todos los derechos reservados.
+      </div>
+      <div class="footer-legal-links">
+        <a href="#">Términos de Servicio</a>
+        <span class="separator">|</span>
+        <a href="#">Políticas de Privacidad (Arcotel)</a>
+      </div>
+      <div class="footer-developer">
+        Desarrollado con alta disponibilidad por: <span class="dev-name">Ing. Yeron Pool Cuero Montaño</span>
+      </div>
+    </div>
+
   </div>
 </footer>

@@ -1,0 +1,80 @@
+<div class="global-ai-widget" id="globalAiWidget">
+    <button class="global-ai-trigger" id="globalAiTrigger" aria-label="Abrir asistente virtual">
+        <div class="robot-avatar-container pulse-glow">
+            <svg class="robot-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="robotGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#003366" />
+                        <stop offset="100%" stop-color="#001F40" />
+                    </linearGradient>
+                    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#ff6600" />
+                        <stop offset="100%" stop-color="#cc5200" />
+                    </linearGradient>
+                    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                        <feGaussianBlur stdDeviation="3" result="blur" />
+                        <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                    </filter>
+                </defs>
+                <rect x="12" y="40" width="6" height="20" rx="3" fill="#ff6600" />
+                <rect x="82" y="40" width="6" height="20" rx="3" fill="#ff6600" />
+                <rect x="20" y="25" width="60" height="50" rx="15" fill="url(#robotGrad)" stroke="#ff6600" stroke-width="2" />
+                <rect x="28" y="33" width="44" height="26" rx="8" fill="#001122" stroke="#003366" stroke-width="1.5" />
+                <circle class="robot-eye eye-left" cx="40" cy="46" r="4" fill="#ff6600" filter="url(#glow)" />
+                <circle class="robot-eye eye-right" cx="60" cy="46" r="4" fill="#ff6600" filter="url(#glow)" />
+                <path d="M 44 53 L 56 53" stroke="#003366" stroke-width="2" stroke-linecap="round" />
+                <rect x="42" y="75" width="16" height="8" rx="2" fill="#001F40" />
+                <path d="M 35 83 L 65 83" stroke="#ff6600" stroke-width="3" stroke-linecap="round" />
+            </svg>
+        </div>
+        <span class="trigger-text">GLOBAL <span class="text-orange">AI</span></span>
+    </button>
+
+    <div class="global-ai-window" id="globalAiWindow">
+        <div class="chat-header">
+            <div class="header-identity">
+                <div class="header-robot-avatar">
+                    <svg class="robot-svg-mini" viewBox="0 0 100 100">
+                        <rect x="20" y="25" width="60" height="50" rx="12" fill="#003366" stroke="#ff6600" stroke-width="2" />
+                        <rect x="28" y="33" width="44" height="26" rx="6" fill="#001122" />
+                        <circle class="robot-eye-mini" cx="40" cy="46" r="3.5" fill="#ff6600" />
+                        <circle class="robot-eye-mini" cx="60" cy="46" r="3.5" fill="#ff6600" />
+                    </svg>
+                </div>
+                <div class="header-title-wrapper">
+                    <h3 class="header-title">GLOBAL <span class="text-orange">AI</span></h3>
+                    <span class="header-status">Asistente Virtual • Corporativo</span>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button class="action-btn" id="btnMinimize" title="Minimizar" aria-label="Minimizar">
+                    <svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </button>
+                <button class="action-btn" id="btnMaximize" title="Maximizar / Restaurar" aria-label="Maximizar">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="5" width="14" height="14" rx="2"/></svg>
+                </button>
+                <button class="action-btn close-btn" id="btnCloseChat" title="Cerrar" aria-label="Cerrar">
+                    <svg viewBox="0 0 24 24" width="16" height="16"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="chat-body" id="chatBody">
+            <div class="chat-messages-container" id="messagesContainer">
+                </div>
+        </div>
+
+        <div class="chat-quick-replies" id="quickRepliesContainer">
+            </div>
+
+        <form class="chat-input-area" id="chatInputForm" autocomplete="off">
+            <input type="text" id="chatInput" class="chat-input-field" placeholder="Escriba su consulta corporativa aquí..." aria-label="Mensaje para GLOBAL AI">
+            <button type="submit" class="chat-send-btn" id="chatSendBtn" aria-label="Enviar mensaje">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+            </button>
+        </form>
+    </div>
+</div>

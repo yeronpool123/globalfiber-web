@@ -16,13 +16,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     await Promise.all([
       loadComponent("header", "header.html"),
       loadComponent("hero", "hero.html"),
+      loadComponent("carrier", "carrier.html"),
       loadComponent("services", "services.html"),
       loadComponent("benefits", "benefits.html"),
       loadComponent("contact", "contact.html"),
       loadComponent("footer", "footer.html")
     ]);
 
-    // Notificar a UI.js que el contenido está listo
+    // Notificar a UI.js que el contenido base ya está inyectado
     window.dispatchEvent(new Event('componentsLoaded'));
     
   } catch (err) {
@@ -30,4 +31,3 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.body.innerHTML = "<h1 style='color:white; text-align:center; padding-top:50px;'>Error al cargar el sitio. Por favor recarga.</h1>";
   }
 });
-
