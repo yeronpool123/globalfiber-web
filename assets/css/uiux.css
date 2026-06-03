@@ -2324,3 +2324,122 @@ i.ph {
   transform: rotate(10deg) scale(1.1);
 }
 
+
+
+
+/* ==========================================================================
+   INTERFAZ DE MAPA TÉCNICO INTERACTIVO (CYBER-MAP UI/UX)
+   ========================================================================== */
+
+.cyber-map-section {
+  margin-top: 2.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.map-header h3 {
+  color: #ffffff;
+  font-size: 1.3rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0.5rem;
+}
+
+.map-header h3 i {
+  color: #ff6b00;
+}
+
+.map-header p {
+  color: #a0aec0;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Ventana de previsualización del mapa */
+.cyber-map-window {
+  position: relative;
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 107, 0, 0.2);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  background: #001a33;
+}
+
+.map-tech-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0.85; /* Se integra con el fondo oscuro corporativo */
+}
+
+/* Capa de interacción tipo Cyber-Glass */
+.map-glass-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(to bottom, rgba(0,26,51,0.2), rgba(0,26,51,0.6));
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+}
+
+/* Botón flotante central */
+.btn-explore-map {
+  background: rgba(255, 107, 0, 0.9);
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 8px 20px rgba(255, 107, 0, 0.3);
+  transform: scale(0.95);
+  opacity: 0.9;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  cursor: pointer;
+}
+
+/* Efectos Hover de la ventana */
+.cyber-map-window:hover .map-tech-img {
+  transform: scale(1.04);
+  opacity: 1;
+}
+
+.cyber-map-window:hover .map-glass-overlay {
+  background: rgba(0, 26, 51, 0.3);
+}
+
+.cyber-map-window:hover .btn-explore-map {
+  transform: scale(1) translateY(-2px);
+  opacity: 1;
+  background: #ff7b1a;
+  box-shadow: 0 12px 25px rgba(255, 107, 0, 0.5);
+}
+
+/* EFECTO PULSO RADAR MISION CRÍTICA (Simulación de red activa) */
+.pulse-radar {
+  position: absolute;
+  top: 25%; left: 35%; /* Simula un nodo en el océano/costa */
+  width: 12px; height: 12px;
+  background: #ff6b00;
+  border-radius: 50%;
+  box-shadow: 0 0 0 #ff6b00;
+  animation: radar-pulse-effect 2s infinite;
+  pointer-events: none;
+}
+
+@keyframes radar-pulse-effect {
+  0% { box-shadow: 0 0 0 0 rgba(255, 107, 0, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(255, 107, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 107, 0, 0); }
+}
+

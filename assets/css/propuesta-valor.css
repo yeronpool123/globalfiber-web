@@ -1,0 +1,235 @@
+/* ==========================================================================
+   ESTILOS COMPONENTIZADOS CORREGIDOS - PROPUESTA DE VALOR
+   ========================================================================== */
+
+.gf-features-section {
+  background: #ffffff !important;
+  padding: 5rem 5% !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.gf-features-container {
+  width: 100% !important;
+  max-width: 1140px !important;
+  margin: 0 auto !important;
+}
+
+.gf-features-header {
+  text-align: center !important;
+  margin-bottom: 3.5rem !important;
+}
+
+.gf-features-header h2 {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 2.3rem !important;
+  font-weight: 800 !important;
+  color: #001e3d !important;
+  margin-bottom: 1rem !important;
+}
+
+.gf-features-header .highlight-orange {
+  color: #ff6b00 !important;
+}
+
+.gf-features-header p {
+  color: #64748b !important;
+  font-size: 1.05rem !important;
+  max-width: 700px !important;
+  margin: 0 auto !important;
+}
+
+.gf-features-grid-layout {
+  display: grid !important;
+  grid-template-columns: 1.2fr 1fr !important;
+  gap: 40px !important;
+  align-items: flex-start !important;
+}
+
+.gf-features-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+}
+
+/* Tarjeta Base */
+.gf-feature-card {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+  padding: 22px 24px !important;
+  border-radius: 16px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 20px !important;
+  cursor: pointer !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  position: relative !important;
+}
+
+.gf-card-icon-wrapper {
+  width: 52px !important;
+  height: 52px !important;
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 14px !important;
+  color: #001e3d !important;
+  font-size: 1.5rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+}
+
+.gf-card-content {
+  flex-grow: 1 !important;
+}
+
+.gf-card-content h3 {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 1.15rem !important;
+  font-weight: 700 !important;
+  color: #001e3d !important;
+  margin: 0 0 4px 0 !important;
+}
+
+.gf-card-content p {
+  color: #64748b !important;
+  font-size: 0.95rem !important;
+  margin: 0 !important;
+  line-height: 1.4 !important;
+}
+
+.gf-card-arrow {
+  color: #94a3b8 !important;
+  transition: transform 0.3s ease !important;
+}
+
+/* Elemento Oculto por defecto en Desktop */
+.gf-mobile-image-wrapper {
+  display: none !important;
+  width: 100% !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  margin-top: 0 !important;
+  border-radius: 12px !important;
+}
+
+.gf-mobile-image-wrapper img {
+  width: 100% !important;
+  height: 180px !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+/* Efectos de Activación (Desktop) */
+.gf-feature-card:hover {
+  background: #ffffff !important;
+  border-color: rgba(255, 107, 0, 0.4) !important;
+  transform: translateX(4px) !important;
+}
+
+.gf-feature-card.active {
+  background: #001e3d !important;
+  border-color: #001e3d !important;
+}
+
+.gf-feature-card.active .gf-card-icon-wrapper {
+  background: #ff6b00 !important;
+  color: #ffffff !important;
+  border-color: #ff6b00 !important;
+}
+
+.gf-feature-card.active .gf-card-content h3 { color: #ffffff !important; }
+.gf-feature-card.active .gf-card-content p { color: #94a3b8 !important; }
+.gf-feature-card.active .gf-card-arrow {
+  color: #ff6b00 !important;
+  transform: rotate(90deg) !important; /* Rota hacia abajo indicando apertura */
+}
+
+/* Visor Fijo Derecho */
+.gf-features-viewer {
+  position: sticky !important;
+  top: 120px !important;
+  width: 100% !important;
+}
+
+.gf-viewer-frame {
+  position: relative !important;
+  width: 100% !important;
+  height: 440px !important;
+  border-radius: 24px !important;
+  overflow: hidden !important;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08) !important;
+  background: #001a33 !important;
+}
+
+.gf-viewer-img {
+  position: absolute !important;
+  top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important;
+  object-fit: cover !important;
+  opacity: 0 !important;
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease !important;
+  transform: scale(1.04) !important;
+}
+
+.gf-viewer-img.active {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+}
+
+.gf-viewer-overlay {
+  position: absolute !important;
+  top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important;
+  background: linear-gradient(to top, rgba(0,30,61,0.3), transparent) !important;
+}
+
+/* ==========================================================================
+   ESTILOS RESPONSIVE PREMIUM AUTOMÁTICOS
+   ========================================================================== */
+@media (max-width: 991px) {
+  .gf-features-grid-layout {
+    grid-template-columns: 1fr !important; /* Transición a una columna limpia */
+    gap: 16px !important;
+  }
+  
+  .gf-features-viewer {
+    display: none !important; /* Desactiva el visor lateral estático en móviles */
+  }
+  
+  .gf-feature-card:hover {
+    transform: none !important;
+  }
+  
+  /* Activación del acordeón interno para celulares */
+  .gf-mobile-image-wrapper {
+    display: block !important; /* Habilita el render */
+  }
+  
+  .gf-feature-card.active .gf-mobile-image-wrapper {
+    height: 180px !important;
+    margin-top: 14px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+}
+
+/* Corrección de eventos de puntero para evitar bloqueos en el clic */
+.gf-card-icon-wrapper,
+.gf-card-icon-wrapper i,
+.gf-card-content,
+.gf-card-content h3,
+.gf-card-content p,
+.gf-card-arrow,
+.gf-card-arrow i {
+  pointer-events: none !important; /* El clic traspasa estos elementos y lo recibe directamente la tarjeta (.gf-feature-card) */
+}
+
+/* Forzar que las imágenes del visor tengan transiciones visibles en escritorio */
+.gf-viewer-img {
+  z-index: 1 !important;
+}
+
+.gf-viewer-img.active {
+  z-index: 5 !important;
+  opacity: 1 !important;
+}

@@ -1,0 +1,322 @@
+/* ==========================================================================
+   ESTILOS ENCAPSULADOS - COMPONENTE MAPA TÉCNICO
+   ========================================================================== */
+
+.globalfiber-tech-map-section {
+  background: #001326 !important;
+  padding: 5rem 5% 6rem 5% !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+}
+
+.tech-map-wrapper {
+  width: 100% !important;
+  max-width: 1140px !important;
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
+}
+
+/* Tipografía y Textos */
+.tech-map-header {
+  text-align: left !important;
+  margin-bottom: 2.5rem !important;
+}
+
+.tech-map-badge {
+  background: rgba(255, 107, 0, 0.1) !important;
+  color: #ff6b00 !important;
+  padding: 6px 16px !important;
+  border-radius: 50px !important;
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 1px !important;
+  display: inline-block !important;
+  margin-bottom: 1rem !important;
+  font-family: 'Poppins', sans-serif !important;
+}
+
+.tech-map-title {
+  margin: 0 0 1rem 0 !important;
+  font-size: 2.2rem !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+  line-height: 1.3 !important;
+  font-family: 'Poppins', sans-serif !important;
+}
+
+.tech-map-subtitle {
+  color: #a0aec0 !important;
+  font-size: 1.05rem !important;
+  max-width: 780px !important;
+  line-height: 1.6 !important;
+  margin: 0 !important;
+  font-family: 'Poppins', sans-serif !important;
+}
+
+/* Contenedor Adaptable de la Imagen del Mapa */
+.tech-map-viewport {
+  position: relative !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(255, 107, 0, 0.3) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6) !important;
+  cursor: pointer !important;
+  background: #001a33 !important;
+  box-sizing: border-box !important;
+}
+
+.tech-map-img {
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+  opacity: 0.85 !important;
+  transition: transform 0.5s ease !important;
+}
+
+/* Capa oscura interna y Botón de Acción */
+.tech-map-overlay {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 10 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.tech-map-btn {
+  background: #ff6b00 !important;
+  color: #ffffff !important;
+  border: none !important;
+  padding: 14px 28px !important;
+  border-radius: 12px !important;
+  font-weight: 700 !important;
+  font-size: 0.95rem !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  box-shadow: 0 8px 25px rgba(255, 107, 0, 0.4) !important;
+  transition: all 0.3s ease !important;
+  cursor: pointer !important;
+}
+
+/* Hover interactivo controlado */
+.tech-map-viewport:hover .tech-map-img {
+  transform: scale(1.02) !important;
+  opacity: 1 !important;
+}
+
+.tech-map-viewport:hover .tech-map-btn {
+  transform: translateY(-2px) !important;
+  background: #ff7b1a !important;
+}
+
+/* Radar de Pulso Adaptado al Botón (Más Grande y Cercano) */
+.tech-map-radar {
+  position: absolute !important;
+  top: 50% !important;
+  left: 390px !important; /* Desplazado al lado izquierdo dentro del overlay */
+  transform: translateY(-50%) !important;
+  width: 23px !important; /* Incrementado el tamaño base (1.1 más grande) */
+  height: 23px !important;
+  background: #ff0000 !important;
+  border-radius: 50% !important;
+  pointer-events: none !important;
+  animation: tech-radar-pulse 1.8s infinite ease-in-out !important;
+  z-index: 15 !important;
+}
+
+@keyframes tech-radar-pulse {
+  0% { 
+    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.9);
+    transform: translateY(-50%) scale(0.95);
+  }
+  70% { 
+    box-shadow: 0 0 0 22px rgba(255, 107, 0, 0); /* Pulso de onda más expansivo */
+    transform: translateY(-50%) scale(1.1);
+  }
+  100% { 
+    box-shadow: 0 0 0 0 rgba(255, 107, 0, 0);
+    transform: translateY(-50%) scale(0.95);
+  }
+}
+
+/* Ajuste fino al contenedor del botón para dejarle espacio al radar a su izquierda */
+.tech-map-overlay {
+  position: absolute !important;
+  top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important;
+  background: rgba(0, 21, 43, 0.4) !important;
+  z-index: 10 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.tech-map-btn {
+  background: #ff6b00 !important;
+  color: #ffffff !important;
+  border: none !important;
+  padding: 14px 28px 14px 48px !important; /* Aumentamos el padding izquierdo para que no choque con el pulso */
+  border-radius: 12px !important;
+  font-weight: 700 !important;
+  font-size: 0.95rem !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  box-shadow: 0 8px 25px rgba(255, 107, 0, 0.4) !important;
+  transition: all 0.3s ease !important;
+  cursor: pointer !important;
+  position: relative !important;
+}
+
+/* ==========================================================================
+   PANTALLA COMPLETA MODAL (LIGHTBOX INDEPENDIENTE)
+   ========================================================================== */
+.tech-lightbox-backdrop {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: rgba(0, 10, 20, 0.97) !important;
+  backdrop-filter: blur(15px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+  z-index: 999999 !important; /* Por encima de todo */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: opacity 0.4s ease !important;
+  padding: 20px !important;
+  box-sizing: border-box !important;
+}
+
+.tech-lightbox-backdrop.is-active {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* Contenedor del Modal Modificado para Arrastre */
+.tech-lightbox-content {
+  max-width: 95% !important;
+  max-height: 85vh !important;
+  overflow: hidden !important; /* IMPORTANTE: Cambiado a hidden para que la manito controle el movimiento en lugar de las barras de scroll feas */
+  border-radius: 16px !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9) !important;
+  background: #000b14 !important;
+  position: relative !important;
+  user-select: none !important; /* Evita que se seleccione el texto o la imagen al arrastrar */
+}
+
+/* Imagen del Mapa con cursor de Manito dinámico */
+.tech-lightbox-img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 85vh !important;
+  object-fit: contain !important;
+  display: block !important;
+  cursor: grab !important; /* Manito abierta lista para agarrar */
+  transition: transform 0.1s ease-out !important; /* Transición ultra rápida para que el arrastre se sienta responsivo e inmediato */
+  transform-origin: center center !important;
+}
+
+/* Estado de la Manito cuando se está haciendo clic y arrastrando */
+.tech-lightbox-img:active {
+  cursor: grabbing !important; /* Manito cerrada apretando */
+}
+
+.tech-lightbox-close {
+  position: absolute !important;
+  top: 25px !important;
+  right: 35px !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: none !important;
+  color: #ffffff !important;
+  font-size: 2.2rem !important;
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 50% !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+
+/* BARRA DE HERRAMIENTAS DE ZOOM FLOTANTE */
+.zoom-controls-toolbar {
+  position: absolute !important;
+  bottom: 40px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  background: rgba(0, 26, 51, 0.8) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 107, 0, 0.3) !important;
+  padding: 8px 16px !important;
+  border-radius: 16px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  z-index: 1000000 !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important;
+}
+
+.zoom-controls-toolbar button {
+  background: transparent !important;
+  border: none !important;
+  color: #ffffff !important;
+  font-size: 1.2rem !important;
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 10px !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-weight: 700 !important;
+  transition: all 0.2s ease !important;
+}
+
+.zoom-controls-toolbar button:hover {
+  background: rgba(255, 107, 0, 0.2) !important;
+  color: #ff6b00 !important;
+}
+
+#btn-zoom-reset {
+  font-size: 0.85rem !important;
+  font-family: 'Poppins', sans-serif !important;
+  width: auto !important;
+  padding: 0 10px !important;
+}
+
+/* Permitir scroll interno en el contenedor de la imagen si se desborda por el zoom */
+.tech-lightbox-content {
+  max-width: 95% !important;
+  max-height: 85vh !important;
+  overflow: auto !important; /* Habilita barras de desplazamiento suaves al hacer zoom */
+  border-radius: 16px !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9) !important;
+  background: #000b14 !important;
+}
+
+.tech-lightbox-img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 85vh !important;
+  object-fit: contain !important;
+  display: block !important;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important; /* Animación de zoom fluida */
+  transform-origin: center center !important;
+}

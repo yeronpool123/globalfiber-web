@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -8,15 +9,15 @@
 
 
   <!-- Favicon -->
-<link rel="icon" type="image/jpg" href="assets/images/favicon.jpg">
+  <link rel="icon" type="image/jpg" href="assets/images/favicon.jpg">
 
-<!-- Android -->
-<link rel="apple-touch-icon" href="assets/images/favicon.jpg">
+  <!-- Android -->
+  <link rel="apple-touch-icon" href="assets/images/favicon.jpg">
 
-<!-- Theme color -->
-<meta name="theme-color" content="#003366">
+  <!-- Theme color -->
+  <meta name="theme-color" content="#003366">
 
-  
+
   <!-- LIBRERÍA DE ICONOS PROFESIONALES (Phosphor Icons) -->
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
@@ -29,6 +30,8 @@
   <link rel="stylesheet" href="assets/css/carousel.css">
   <link rel="stylesheet" href="assets/css/carrier.css">
   <link rel="stylesheet" href="assets/css/global-ai.css">
+  <link rel="stylesheet" href="assets/css/mapa-tecnico.css">
+  <link rel="stylesheet" href="assets/css/propuesta-valor.css">
 
 </head>
 
@@ -40,36 +43,32 @@
   <!-- =========================================
      PRELOADER GLOBALFIBER
 ========================================= -->
-<div id="preloader">
+  <div id="preloader">
 
-  <!-- Canvas partículas -->
-  <canvas id="preloader-canvas"></canvas>
+    <!-- Canvas partículas -->
+    <canvas id="preloader-canvas"></canvas>
 
-  <div class="preloader-content">
+    <div class="preloader-content">
 
-    <!-- Logo -->
-    <img 
-      src="assets/images/logoempresa.png" 
-      alt="GlobalFiber Logo"
-      class="preloader-logo"
-    >
+      <!-- Logo -->
+      <img src="assets/images/logoempresa.png" alt="GlobalFiber Logo" class="preloader-logo">
 
-    <!-- Texto -->
-    <h2 class="preloader-title">
-     ¡BIENVENIDOS!
-    </h2>
+      <!-- Texto -->
+      <h2 class="preloader-title">
+        ¡BIENVENIDOS!
+      </h2>
 
-    <p class="preloader-subtitle">
-      Conectando experiencias digitales...
-    </p>
+      <p class="preloader-subtitle">
+        Conectando experiencias digitales...
+      </p>
 
-    <!-- Barra -->
-    <div class="preloader-progress">
-      <div class="preloader-bar" id="preloader-bar"></div>
+      <!-- Barra -->
+      <div class="preloader-progress">
+        <div class="preloader-bar" id="preloader-bar"></div>
+      </div>
+
     </div>
-
   </div>
-</div>
 
 
 
@@ -78,22 +77,24 @@
 
   <!-- Contenedores de Componentes -->
   <div id="header"></div>
-  
-    <main>
 
-      <div id="hero"></div>
+  <main>
 
-      <div id="carrier"></div>
+    <div id="hero"></div>
 
-      <div id="services"></div>
+    <div id="carrier"></div>
 
-      <div id="benefits"></div>
+    <div id="services"></div>
 
-      <div id="global-ai"></div>
+    <div id="benefits"></div>
 
-      <div id="contact"></div>
+    <div id="global-ai"></div>
 
-    </main>
+    <div id="contact"></div>
+
+    <div id="contenedor-componente-mapa"></div>
+
+  </main>
 
 
 
@@ -147,24 +148,45 @@
 
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
-      <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-      <script> emailjs.init("9ryOSEnVHLid-LSIB"); </script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script> emailjs.init("9ryOSEnVHLid-LSIB"); </script>
 
-      <script src="assets/js/components-loader.js"></script>
+  <script src="assets/js/components-loader.js"></script>
 
 
-      <script src="assets/js/ui.js"></script>
-      <script src="assets/js/global-ai.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/global-ai.js"></script>
 
-      <script src="assets/js/form.js"></script>
-      <script src="assets/js/carousel.js"></script>
-      <script src="assets/js/carrier.js"></script>
+  <script src="assets/js/form.js"></script>
+  <script src="assets/js/carousel.js"></script>
+  <script src="assets/js/carrier.js"></script>
+  <script src="assets/js/propuesta-valor.js"></script>
+
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      fetch('components/mapa-tecnico.html')
+        .then(response => response.text())
+        .then(html => {
+          document.getElementById('contenedor-componente-mapa').innerHTML = html;
+
+          // Una vez inyectado el HTML, cargamos su script de eventos
+          const script = document.createElement('script');
+          script.src = 'assets/js/mapa-tecnico.js';
+          document.body.appendChild(script);
+        })
+        .catch(error => console.error('Error cargando el mapa técnico:', error));
+    });
+  </script>
 
 
 </body>
+
 </html>
 
 </body>
+
 </html>
