@@ -2,9 +2,14 @@ function loadComponent(id, file) {
   return fetch(`components/${file}`)
     .then(res => {
       if (!res.ok) throw new Error(`Error loading ${file}`);
-      return res.text();
+      // Convertimos la respuesta en un Buffer de datos crudos
+      return res.arrayBuffer();
     })
-    .then(html => {
+    .then(buffer => {
+      // Forzamos explícitamente la decodificación del archivo en UTF-8
+      const decoder = new TextDecoder("utf-8");
+      const html = decoder.decode(buffer);
+      
       const container = document.getElementById(id);
       if (container) container.innerHTML = html;
     });
@@ -20,7 +25,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       loadComponent("services", "services.html"),
       loadComponent("benefits", "benefits.html"),
       loadComponent("contact", "contact.html"),
-      loadComponent("footer", "footer.html")
+      loadComponent("footer", "footer.html"),
+      loadComponent("ticker-corporativo", "ticker.html")
     ]);
 
     // Notificar a UI.js que el contenido base ya está inyectado

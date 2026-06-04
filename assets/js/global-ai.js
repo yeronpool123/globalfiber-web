@@ -105,8 +105,8 @@
         contacto: {
             palabrasClave: ["contacto", "telefono", "correo", "direccion", "oficina", "vendedor", "cotizar", "asesor", "llamar", "email", "central", "matriz"],
             respuesta: "<p>Para dar inicio a un despliegue tecnológico corporativo, puede contactar directamente a nuestra división Enterprise:</p>" +
-                "<p>📧 <strong>E-mail Corporativo:</strong> corporativo@globalfiber.ec<br>" +
-                "📞 <strong>Central Telefónica (Ecuador):</strong> +593 (02) 450-9000<br>" +
+                "<p>📧 <strong>E-mail Corporativo:</strong> global.fibr@gmail.com<br>" +
+                "📞 <strong>Central Telefónica (Ecuador):</strong> (+593) 099 180 0097<br>" +
                 "📍 <strong>Matriz de Operaciones y Core NOC:</strong> Distrito Tecnológico, Suite 500-B.<br>" +
                 "🌐 O bien, registre su requerimiento formal a través de los formularios técnicos de nuestra página web.</p>",
             sugerencias: ["Servicios", "Planes"]
@@ -282,7 +282,7 @@
         if (!container) return;
 
         const indicatorRow = document.createElement("div");
-        indicatorRow.classList.add("message-row", "bot", "telecom-typing-row");
+        indicatorRow.classList.add("message-row", "bot", "GLOBAL-typing-row");
         
         const bubble = document.createElement("div");
         bubble.classList.add("message-bubble");

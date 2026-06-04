@@ -128,20 +128,20 @@ document.addEventListener("submit", (event) => {
 
         const whatsappNumber = "593991800097"; // Teléfono destino GlobalFiber
 
+        // Construcción del mensaje usando saltos de línea explícitos (\n) para evitar fallos de encoding
         const textMessage = 
-`⚡ *NUEVO REQUERIMIENTO CORPORATIVO* ⚡
------------------------------------------
-📍 *Sede Destino:* ${ciudadAsignada}
-🏢 *Empresa:* ${empresa}
-🆔 *RUC:* ${ruc}
-👤 *Contacto:* ${nombre}
-💼 *Cargo:* ${cargo}
-🛠️ *Servicio de Interés:* ${servicio}
-
-📝 *Detalles del Proyecto:*
-"${mensaje}"
------------------------------------------
-📡 _Enviado desde la Página Web GlobalFiber S.A.S._`;
+            "⚡ *NUEVO REQUERIMIENTO CORPORATIVO* ⚡\n" +
+            "-----------------------------------------\n\n" +
+            `📍 *Sede Destino:* ${ciudadAsignada}\n` +
+            `🏢 *Empresa:* ${empresa}\n` +
+            `🆔 *RUC:* ${ruc}\n` +
+            `👤 *Contacto:* ${nombre}\n` +
+            `💼 *Cargo:* ${cargo}\n` +
+            `🛠️ *Servicio de Interés:* ${servicio}\n\n` +
+            "📝 *Detalles del Proyecto:*\n" +
+            `"${mensaje}"\n` +
+            "-----------------------------------------\n" +
+            "📡 _Enviado desde el Selector de Presencia Regional GlobalFiber S.A.S._";
 
         const encodedText = encodeURIComponent(textMessage);
         window.open(`https://wa.me/${whatsappNumber}?text=${encodedText}`, "_blank");
